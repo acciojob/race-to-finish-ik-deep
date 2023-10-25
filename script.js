@@ -10,3 +10,11 @@ for (let i = 1; i <= 5; i++) {
     });
     window.promises.push(promise);
 }
+Promise.any(promises)
+    .then((result) => {
+        const outputDiv = document.getElementById("output");
+        outputDiv.textContent = result;
+    })
+    .catch((error) => {
+        console.error("All promises were rejected:", error);
+    });
